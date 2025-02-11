@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "phanthro-calc": {
+      "projectType": "library",
+      "root": "projects/phanthro-calc",
+      "sourceRoot": "projects/phanthro-calc/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/phanthro-calc/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/phanthro-calc/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/phanthro-calc/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/phanthro-calc/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
